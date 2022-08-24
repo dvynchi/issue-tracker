@@ -3,7 +3,7 @@ document.getElementById('issueInputForm').addEventListener('submit', saveIssue);
 function saveIssue(e) {
   var issueDesc = document.getElementById('issueDescInput').value;
   var issueSeverity = document.getElementById('issueSeverityInput').value;
-  var issueProjectName = document.getElementById('issueProjectNameInput').value;
+  var issueAssignedTo = document.getElementById('issueAssignedToInput').value;
   var issueId = chance.guid();
   var issueStatus = 'Open';
 
@@ -12,8 +12,7 @@ function saveIssue(e) {
     id: issueId,
     description: issueDesc,
     severity: issueSeverity,
-    // assignedTo: issueAssignedTo,
-    projectName: issueProjectName,
+    assignedTo: issueAssignedTo,
     status: issueStatus
   }
 
@@ -88,15 +87,15 @@ function fetchIssues() {
     var id = issues[i].id;
     var desc = issues[i].description;
     var severity = issues[i].severity;
-    var projectName = issues[i].projectName;
+    var assignedTo = issues[i].assignedTo;
     var status = issues[i].status;
 
     issuesList.innerHTML +=   '<div class="well">'+
                               '<h6>Issue ID: ' + id + '</h6>'+
-                              '<p><span class="label label-primary">' + status + '</span></p>'+
-                              '<h3><span class="glyphicon glyphicon-user"></span> ' + projectName + '</h3>'+
-                              '<h4>' + desc + '</h4>'+
+                              '<p><span class="label label-info">' + status + '</span></p>'+
+                              '<h3>' + desc + '</h3>'+
                               '<p><span class="glyphicon glyphicon-time"></span> ' + severity + '</p>'+
+                              '<p><span class="glyphicon glyphicon-user"></span> ' + assignedTo + '</p>'+
                               // '<a href="#" onclick="setStatusClosed(\''+id+'\')" class="btn btn-warning">Close</a> '+
                               '<a href="#" onclick="setStatusClosed(\''+id+'\')" class="btn btn-success">Done</a> '+
                               '<a href="#" onclick="setStatusTentative(\''+id+'\')" class="btn btn-info">Tentative</a> '+

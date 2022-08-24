@@ -93,10 +93,10 @@ function fetchIssues() {
 
     issuesList.innerHTML +=   '<div class="well">'+
                               '<h6>Issue ID: ' + id + '</h6>'+
-                              '<p><span class="label label-primary">' + status + '</span></p>'+
-                              '<h3><span class="glyphicon glyphicon-user"></span> ' + projectName + '</h3>'+
-                              '<h4>' + desc + '</h4>'+
+                              '<p><span class="label label-info">' + status + '</span></p>'+
+                              '<h3>' + desc + '</h3>'+
                               '<p><span class="glyphicon glyphicon-time"></span> ' + severity + '</p>'+
+                              '<p><span class="glyphicon glyphicon-user"></span> ' + projectName + '</p>'+
                               // '<a href="#" onclick="setStatusClosed(\''+id+'\')" class="btn btn-warning">Close</a> '+
                               '<a href="#" onclick="setStatusClosed(\''+id+'\')" class="btn btn-success">Done</a> '+
                               '<a href="#" onclick="setStatusTentative(\''+id+'\')" class="btn btn-info">Tentative</a> '+
