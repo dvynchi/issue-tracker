@@ -64,19 +64,6 @@ function deleteIssue(id) {
   fetchIssues();
 }
 
-// implement tentative button
-function setStatusTentative(id) {
-  var issues = JSON.parse(localStorage.getItem('issues'));
-
-  for (var i = 0; i < issues.length; i++) {
-    if (issues[i].id == id) {
-      issues[i].status = 'Tentative';
-    }
-  }
-  localStorage.setItem('issues', JSON.stringify(issues));
-  fetchIssues();
-}
-
 function fetchIssues() {
   var issues = JSON.parse(localStorage.getItem('issues'));
   var myList = document.getElementById('issuesList');

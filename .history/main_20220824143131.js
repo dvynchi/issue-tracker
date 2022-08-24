@@ -64,19 +64,6 @@ function deleteIssue(id) {
   fetchIssues();
 }
 
-// implement tentative button
-function setStatusTentative(id) {
-  var issues = JSON.parse(localStorage.getItem('issues'));
-
-  for (var i = 0; i < issues.length; i++) {
-    if (issues[i].id == id) {
-      issues[i].status = 'Tentative';
-    }
-  }
-  localStorage.setItem('issues', JSON.stringify(issues));
-  fetchIssues();
-}
-
 function fetchIssues() {
   var issues = JSON.parse(localStorage.getItem('issues'));
   var myList = document.getElementById('issuesList');
@@ -99,6 +86,7 @@ function fetchIssues() {
                               // '<a href="#" onclick="setStatusClosed(\''+id+'\')" class="btn btn-warning">Close</a> '+
                               '<a href="#" onclick="setStatusClosed(\''+id+'\')" class="btn btn-success">Done</a> '+
                               '<a href="#" onclick="setStatusTentative(\''+id+'\')" class="btn btn-info">Tentative</a> '+
+                              '<a href="#" onclick="setStatusDone(\''+id+'\')" class="btn btn-success">Done</a> '+
                               '<a href="#" onclick="deleteIssue(\''+id+'\')" class="btn btn-danger">Delete</a>'+
                               '</div>'; // close initial div
   }
